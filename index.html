@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RCI Digital Solutions | Your Trusted Partner</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      line-height: 1.6;
+      color: #333;
+      background: #f9f9f9;
+    }
+
+    /* Header */
+    header {
+      background: #00457c;
+      color: white;
+      padding: 20px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    header img {
+      height: 50px;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      margin-left: 15px;
+      flex-grow: 1;
+      font-weight: 700;
+    }
+    nav a {
+      color: white;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #f9a825;
+    }
+
+    /* Hero Section */
+    #hero {
+      background: linear-gradient(135deg, #00457c 0%, #0072c6 100%);
+      color: white;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+    #hero h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      max-width: 700px;
+      animation: fadeInDown 1.5s ease forwards;
+      opacity: 0;
+    }
+    #hero p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin-bottom: 30px;
+      font-weight: 400;
+      animation: fadeInUp 1.5s ease 0.5s forwards;
+      opacity: 0;
+    }
+    #hero .cta {
+      background: #f9a825;
+      color: #00457c;
+      padding: 15px 30px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 50px;
+      box-shadow: 0 8px 20px rgba(249, 168, 37, 0.4);
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+      animation: fadeInUp 1.5s ease 1s forwards;
+      opacity: 0;
+    }
+    #hero .cta:hover {
+      background: #fbc02d;
+    }
+
+    /* Services Section */
+    #services {
+      padding: 70px 15px;
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+    }
+    #services h2 {
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+      color: #00457c;
+      font-weight: 700;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 25px;
+    }
+    .service-card {
+      background: white;
+      padding: 30px 25px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 69, 124, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 69, 124, 0.2);
+    }
+    .service-card h3 {
+      color: #0072c6;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    .service-card p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.4;
+    }
+
+    /* About Section */
+    #about {
+      background: #e3f0ff;
+      padding: 70px 15px;
+      text-align: center;
+    }
+    #about h2 {
+      font-size: 2.4rem;
+      margin-bottom: 30px;
+      color: #00457c;
+      font-weight: 700;
+    }
+    #about p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.1rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    /* Contact Section */
+    #contact {
+      padding: 70px 15px;
+      max-width: 600px;
+      margin: auto;
+      text-align: center;
+    }
+    #contact h2 {
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+      color: #00457c;
+      font-weight: 700;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    input, textarea {
+      padding: 15px 18px;
+      font-size: 1rem;
+      border: 2px solid #ccc;
+      border-radius: 7px;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+      font-family: inherit;
+    }
+    input:focus, textarea:focus {
+      border-color: #0072c6;
+      outline: none;
+    }
+    button {
+      background: #0072c6;
+      color: white;
+      font-weight: 700;
+      padding: 15px 0;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0, 114, 198, 0.3);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    button:hover {
+      background: #005ea1;
+      transform: scale(1.03);
+    }
+
+    /* Footer */
+    footer {
+      background: #00457c;
+      color: white;
+      padding: 25px 15px;
+      text-align: center;
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin-top: 50px;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+      }
+      header h1 {
+        margin: 15px 0 10px 0;
+        flex-basis: 100%;
+      }
+      nav a {
+        margin: 10px 15px;
+        font-size: 1rem;
+      }
+      #hero h2 {
+        font-size: 2.1rem;
+      }
+      #hero p {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+
+  <!-- Zoho SalesIQ Tracking Code -->
+  <script type="text/javascript">
+    var $zoho = $zoho || {};
+    $zoho.salesiq = $zoho.salesiq || {
+      widgetcode: "YOUR_WIDGET_CODE_HERE",
+      values: {},
+      ready: function () {}
+    };
+    var d = document;
+    s = d.createElement("script");
+    s.type = "text/javascript";
+    s.defer = true;
+    s.src = "https://salesiq.zoho.com/widget";
+    t = d.getElementsByTagName("script")[0];
+    t.parentNode.insertBefore(s, t);
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <img src="https://www.rcidigital.com/RCID%20Logo.jpg" alt="RCI Digital Solutions Logo" />
+    <h1>RCI Digital Solutions</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero">
+    <h2>Your Trusted Partner for O&M, Manufacturing, and Project Management</h2>
+    <p>Delivering cutting-edge digital solutions for efficient operations and successful project execution.</p>
+    <a href="#contact" class="cta">Get In Touch</a>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Core Services</h2>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>Operations & Maintenance (O&M)</h3>
+        <p>Optimize your assets and reduce downtime with our smart O&M solutions tailored to your industry.</p>
+      </div>
+      <div class="service-card">
+        <h3>Manufacturing Solutions</h3>
+        <p>Enhance productivity and quality control using our innovative manufacturing technologies.</p>
+      </div>
+      <div class="service-card">
+        <h3>Project Management Information Systems (PMIS)</h3>
+        <p>Track, manage, and report on your projects effectively with our robust PMIS platforms.</p>
+      </div>
+      <div class="service-card">
+        <h3>Multi-Project Tracking</h3>
+        <p>Monitor multiple projects simultaneously to ensure timely delivery and cost control.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About RCI Digital Solutions</h2>
+    <p>
+      At RCI Digital Solutions, we specialize in delivering end-to-end digital transformation services.
+      Our experienced team combines technical expertise with industry knowledge to help businesses
+      improve operational efficiency, streamline manufacturing, and successfully manage complex projects.
+      Partner with us to harness the power of technology and achieve your business goals.
+    </p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="text" name="company" placeholder="Company Name" />
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2026 RCI Digital Solutions. All rights reserved.
+  </footer>
+
+  <script>
+    // Contact Form Handler
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Thank you for reaching out! We will get back to you shortly.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
+
